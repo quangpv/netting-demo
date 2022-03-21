@@ -1,0 +1,26 @@
+.payment-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-card > div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.payment-card > div:not(:first-child) {
+    display: flex;
+    align-items: baseline;
+    margin-top: var(--size-10);
+}
+
+.payment-card > div:last-child > * {
+    flex: 1;
+    font-size: var(--fontSize-12);
+    color: var(--colorGray);
+}
+
+.payment-card .count {
+    font-weight: bold;
+    color: var(--colorBlack);
+}

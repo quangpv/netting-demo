@@ -1,0 +1,60 @@
+
+
+.netting-report {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.netting-report > *:first-child {
+    flex: 1;
+    margin-top: var(--size-20);
+}
+
+.netting-report button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--size-40);
+    margin-top: var(--size-20);
+    border-color: var(--colorPrimary);
+    color: var(--colorPrimary);
+    background-color: var(--colorWhite);
+    gap: var(--size-10);
+}
+
+.netting-report table {
+    border-collapse: separate;
+    border-spacing: var(--size-10) 0;
+}
+
+.netting-report table th,
+.netting-report table td:not(:first-child) {
+    text-align: center;
+}
+
+.netting-report table tbody tr {
+    background: none;
+}
+
+.netting-report table th:nth-child(2),
+.netting-report table th:nth-child(3) {
+    background-color: var(--colorGray);
+    color: var(--colorWhite);
+    border-radius: var(--size-4) var(--size-4) 0 0;
+    min-width: var(--size-100);
+}
+
+.netting-report table th:nth-child(3) {
+    background-color: var(--colorPrimary);
+}
+
+.netting-report table tbody tr td:nth-child(2) {
+    background-color: var(--colorGraySilver);
+    color: var(--colorBlack);
+}
+
+.netting-report table tbody tr td:nth-child(3) {
+    background-color: var(--colorPrimary_20);
+    color: var(--colorPrimary);
+}

@@ -1,0 +1,19 @@
+.table-section {
+    margin: var(--size-20) var(--size-20) var(--size-5);
+}
+
+.table-section > label {
+    font-size: var(--fontSize-14);
+    font-weight: normal;
+}
+
+.table-section table {
+    margin-top: var(--size-20);
+    background-color: var(--colorWhite);
+    font-size: var(--fontSize-14);
+}
+
+.table-section table {
+    border-radius: var(--size-2);
+    box-shadow: 0 0 var(--size-4) var(--colorGrayLight);
+}

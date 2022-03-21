@@ -1,0 +1,39 @@
+.register {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.register > form {
+    display: flex;
+    flex-direction: column;
+    background: var(--colorPrimaryDark);
+    color: var(--colorWhite);
+    padding: var(--size-20);
+    border-radius: var(--size-4);
+    width: var(--size-400);
+}
+.register h2 {
+    text-align: center;
+}
+.register label {
+    margin-top: var(--size-16);
+}
+
+.register input {
+    margin-top: var(--size-10);
+    border-radius: var(--size-2);
+    padding: var(--size-10);
+}
+.register .btn-registry{
+    margin-top: var(--size-40);
+    padding: var(--size-10) var(--size-50);
+    border-radius: var(--size-2);
+}
+.register .btn-back-to-login{
+    margin-top: var(--size-10);
+    color: var(--colorWhite);
+    background: transparent;
+    border: none;
+}

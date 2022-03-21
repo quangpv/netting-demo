@@ -1,0 +1,11 @@
+.netting-status {
+    padding: var(--size-5) var(--size-10);
+    font-size: var(--fontSize-12);
+    font-weight: bold;
+    border-width: var(--size-1);
+    border-style: solid;
+    border-radius: var(--size-2);
+    min-width: 76px !important;
+    text-align: center;
+    display: inline-block;
+}

@@ -1,0 +1,139 @@
+.insight {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: var(--size-20);
+    padding-bottom: var(--size-20);
+}
+
+.insight .info {
+    grid-area: 1/1;
+    margin-right: var(--size-20);
+    padding-left: var(--size-20);
+}
+
+.insight .detail {
+    grid-area: 1/2;
+    border-left-width: var(--size-1);
+    border-left-style: solid;
+    border-color: var(--colorGraySilver);
+    padding-right: var(--size-20);
+    padding-left: var(--size-20);
+}
+
+.insight .action {
+    padding-top: var(--size-20);
+    grid-area: 2/ span 2;
+    border-top-width: var(--size-1);
+    border-top-style: solid;
+    border-color: var(--colorGraySilver);
+    display: flex;
+    padding-left: var(--size-20);
+    padding-right: var(--size-20);
+}
+
+.insight .copyable-label {
+    height: var(--size-40);
+    display: flex;
+    align-items: center;
+    border-radius: var(--size-4);
+    background-color: var(--colorGraySilver);
+    padding-left: var(--size-10);
+    padding-right: var(--size-10);
+    margin-top: var(--size-5);
+}
+
+.insight .copyable-label > label {
+    flex: 1;
+    color: var(--colorBlack);
+    font-weight: lighter;
+    font-size: var(--fontSize-12);
+}
+
+.insight .copyable-label > button {
+    height: var(--size-20);
+    display: flex;
+    align-items: center;
+    background-color: var(--colorWhite);
+    font-size: var(--fontSize-12);
+    font-weight: lighter;
+}
+
+.insight > .info > h6:not(:first-child) {
+    margin-top: var(--size-10);
+}
+
+.insight > .info > *:last-child {
+    margin-bottom: var(--size-20);
+}
+
+.insight .action > *:first-child {
+    flex: 1;
+}
+
+.insight .action button {
+    height: var(--size-40);
+}
+
+.insight .action > div > button:first-child {
+    background-color: var(--colorWhite);
+}
+
+.insight .action > button:last-child {
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+    display: flex;
+    align-items: center;
+    gap: var(--size-10);
+}
+
+.insight .detail label {
+    font-weight: normal;
+    font-size: var(--fontSize-12);
+    color: var(--colorGray);
+    margin-top: var(--size-10);
+    display: inline-block;
+}
+
+.insight .detail p {
+    margin-top: var(--size-5);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    width: var(--size-140);
+    text-align: center;
+    visibility: hidden;
+    background-color: #555;
+    color: var(--colorWhite);
+    border-radius: var(--size-4);
+    padding: var(--size-5);
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    opacity: 0;
+    margin-left: -75px;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

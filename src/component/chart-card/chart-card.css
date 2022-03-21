@@ -1,0 +1,60 @@
+.chart-card-container {
+    display: flex;
+    align-items: center;
+}
+
+.chart-card-container > *:last-child{
+    margin-left: auto;
+}
+
+.chart-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-card img {
+    width: var(--size-16);
+    height: var(--size-16);
+}
+
+.chart-card > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.chart-card > div:nth-child(1) > span {
+    margin-left: var(--size-5);
+}
+
+.chart-card > div:nth-child(2) {
+    display: flex;
+    align-items: baseline;
+    margin-top: var(--size-10);
+}
+
+.chart-card > div:nth-child(2) > span:nth-child(2) {
+    font-weight: bold;
+    font-size: var(--fontSize-22);
+    margin-left: var(--size-5);
+}
+
+.chart-card > div:nth-child(2) > span:nth-child(3) {
+    margin-left: var(--size-5);
+}
+
+.chart-card > div:nth-child(3) {
+    display: flex;
+    align-items: baseline;
+    font-size: var(--fontSize-12);
+    color: var(--colorGray);
+    margin-top: var(--size-10);
+}
+
+.chart-card > div:nth-child(3) > span:nth-child(3) {
+    margin-left: var(--size-4);
+}
+
+.chart-card > div:nth-child(3) > span:nth-child(2) {
+    margin-left: var(--size-4);
+    font-weight: bold;
+}

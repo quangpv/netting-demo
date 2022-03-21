@@ -1,0 +1,41 @@
+.netting-table {
+    background-color: var(--colorWhite);
+    font-size: var(--fontSize-14);
+}
+
+.netting-table table {
+    border-radius: var(--size-2);
+    box-shadow: 0 0 var(--size-4) var(--colorGrayLight);
+}
+.netting-table td > span:first-child {
+    font-size: var(--fontSize-10);
+}
+
+.netting-table thead tr:first-child > th:not(:first-child, :last-child) {
+    background-color: var(--colorBlack);
+    color: var(--colorWhite);
+    border-left-color: var(--colorGraySilver1) ;
+    border-left-style: solid;
+    border-left-width: var(--size-1);
+}
+
+.netting-table table th:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(6)),
+.netting-table table td:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5), :nth-child(6)) {
+    border-left-color: var(--colorGraySilver1) ;
+    border-left-style: solid;
+    border-left-width: var(--size-1);
+}
+
+.netting-table table tbody > tr:nth-child(odd) {
+    background-color: var(--colorGraySilver);
+}
+
+.netting-table thead tr > th {
+
+}
+
+.netting-table tr a {
+    text-decoration: none;
+    color: var(--colorPrimary);
+    font-weight: bold;
+}

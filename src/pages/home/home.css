@@ -1,0 +1,85 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+header {
+    display: flex;
+    background: var(--colorPrimaryDark);
+    align-items: center;
+    padding: var(--size-8) var(--size-20);
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+header > img {
+    width: var(--size-40);
+    height: var(--size-40);
+}
+
+header :nth-child(2) {
+    margin-left: var(--size-10);
+    flex: 1;
+}
+
+header:nth-last-child {
+    margin-left: auto;
+}
+
+header > h1 {
+    color: var(--colorWhite);
+    font-size: var(--fontSize-22);
+}
+
+.circle {
+    background-color: #E9F3FC;
+    width: var(--size-30);
+    height: var(--size-30);
+    border-radius: var(--size-30);
+    text-align: center;
+    vertical-align: middle;
+    line-height: var(--size-30);
+    color: var(--colorPrimary);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: var(--size-10);
+    padding-bottom: var(--size-10);
+    background-color: var(--colorWhite);
+    min-height: var(--size-45);
+}
+
+nav > .my-nav-link {
+    color: var(--colorGray);
+    padding-left: var(--size-20);
+    padding-right: var(--size-20);
+    text-decoration: none;
+}
+
+nav > .my-nav-link:hover {
+    color: var(--colorBlack);
+}
+
+.divider-horizontal {
+    background-color: var(--colorGrayLight);
+    width: 100%;
+    height: var(--size-1);
+}
+
+nav .active-link {
+    color: var(--colorBlack) !important;
+}
+
+.home-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}

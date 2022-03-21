@@ -1,0 +1,34 @@
+.cash-flow {
+    display: grid;
+    grid-template-columns: 130px 1fr 100px;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: var(--size-10);
+    row-gap: var(--size-5);
+}
+
+.cash-flow > * {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.cash-flow img {
+    width: var(--size-16);
+    height: var(--size-16);
+}
+
+.cash-flow .cash-progress > * {
+    height: calc(100% - 5px);
+    display: flex;
+    align-items: center;
+}
+
+.cash-flow .cash-vertical-line {
+    grid-area: 1/2/span 3;
+    width: 1px;
+    border-left-width: 1px;
+    border-left-style: dashed;
+    border-color: var(--colorGray);
+    height: calc(100% - 5px);
+    align-self: center;
+}

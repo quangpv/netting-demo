@@ -1,0 +1,71 @@
+.submit-tran {
+    padding: var(--size-20);
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-tran > *:last-child {
+    align-self: center;
+}
+
+.indicator-section {
+    display: flex;
+    align-items: center;
+}
+
+.submit-tran > * {
+    margin-top: var(--size-20);
+}
+
+.submit-tran > p {
+    margin-top: var(--size-40);
+}
+
+.submit-tran > label {
+    color: var(--colorGray);
+    display: flex;
+    align-items: center;
+}
+
+.submit-tran > label > *:first-child {
+    width: var(--size-20);
+    height: var(--size-20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--size-5);
+}
+
+.indicator-active {
+    background-color: var(--colorGreen_20) !important;
+    border-color: var(--colorGreen);
+    color: var(--colorGreen) !important;
+    border-style: solid;
+    border-width: var(--size-2);
+}
+
+.indicator-verified {
+    background-color: var(--colorGreen) !important;
+}
+
+.line-active {
+    background-color: var(--colorGreen) !important;
+}
+
+.indicator-section > div:not(.line) {
+    width: var(--size-30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--size-30);
+    border-radius: var(--size-40);
+    background-color: var(--colorGraySilver1);
+    font-weight: normal;
+    color: var(--colorGray);
+}
+
+.indicator-section > div.line {
+    background-color: var(--colorGraySilver);
+    height: var(--size-1);
+    flex: 1;
+}

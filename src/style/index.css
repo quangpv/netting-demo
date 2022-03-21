@@ -1,0 +1,213 @@
+@import url('https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+    --colorPrimaryDark: #011B56;
+    --colorPrimary: #1E88E5;
+    --colorYellow: #FFC400;
+    --colorYellow_20: rgba(255, 196, 0, 0.2);
+    --colorPrimary_20: rgba(30, 136, 229, 0.2);
+    --colorWhite: #FFFFFF;
+    --colorGraySilver: #f5f5f5;
+    --colorGraySilver1: #eeeeee;
+    --colorGrayLight: #dedede;
+    --colorGray: #888888;
+    --colorBlack: #000000;
+    --colorGreen: #00C853;
+    --colorGreen_20: rgba(0, 200, 83, 0.2);
+    --colorRed: #F44336;
+    --colorRed_20: rgba(244, 67, 54, 0.2);
+    --colorGray_20: rgba(136, 136, 136, 0.2);
+
+    --size-1: 1px;
+    --size-2: 2px;
+    --size-3: 3px;
+    --size-4: 4px;
+    --size-5: 5px;
+    --size-6: 6px;
+    --size-8: 8px;
+    --size-10: 10px;
+    --size-12: 12px;
+    --size-15: 15px;
+    --size-16: 16px;
+    --size-20: 20px;
+    --size-24: 24px;
+    --size-50: 50px;
+    --size-60: 60px;
+    --size-65: 65px;
+    --size-70: 70px;
+    --size-40: 40px;
+    --size-45: 45px;
+    --size-35: 35px;
+    --size-30: 30px;
+    --size-80: 80px;
+    --size-100: 100px;
+    --size-140: 140px;
+    --size-150: 150px;
+    --size-200: 200px;
+    --size-300: 300px;
+    --size-400: 400px;
+
+    --fontSize-10: 10px;
+    --fontSize-12: 12px;
+    --fontSize-13: 13px;
+    --fontSize-14: 14px;
+    --fontSize-16: 16px;
+    --fontSize-15: 15px;
+    --fontSize-18: 18px;
+    --fontSize-20: 20px;
+    --fontSize-22: 22px;
+    --fontSize-30: 30px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: var(--fontSize-14);
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: var(--fontSize-22);
+}
+
+h2 {
+    font-size: var(--fontSize-20);
+}
+
+h3 {
+    font-size: var(--fontSize-18);
+}
+
+h4 {
+    font-size: var(--fontSize-16);
+}
+
+h5 {
+    font-size: var(--fontSize-14);
+}
+
+h6 {
+    font-size: var(--fontSize-12);
+}
+
+body, html, .App, #root, .auth-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+input, button {
+    outline: none;
+    padding: var(--size-12) var(--size-15);
+    border-radius: var(--size-4);
+    border-style: solid;
+    border-width: var(--size-1);
+    border-color: var(--colorGrayLight);
+}
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ohn-btn {
+    cursor: pointer;
+    border-radius: var(--size-4);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: end;
+    padding: var(--size-12) var(--size-15);
+    user-select: none;
+}
+
+.ohn-card {
+    background-color: var(--colorWhite);
+    border-radius: var(--size-4);
+    box-shadow: 0 0 var(--size-4) var(--colorGrayLight);
+    padding: var(--size-10);
+}
+
+table tbody > tr:nth-child(odd) {
+    background-color: var(--colorGraySilver);
+}
+
+table {
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: var(--size-10);
+    text-align: left;
+}
+
+table td {
+    font-size: var(--fontSize-14);
+}
+
+table th {
+    font-weight: normal;
+    color: var(--colorBlack);
+}
+
+body {
+    background-color: var(--colorGraySilver);
+}
+
+canvas {
+    /* all four are needed to support the most browsers */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.modal-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box .modal-box-container {
+    background-color: var(--colorWhite);
+    border-radius: var(--size-3);
+    box-shadow: 0 0 var(--size-3) var(--colorGray);
+}
+
+.select {
+    background-color: var(--colorGraySilver);
+    border-radius: var(--size-4);
+    border-width: var(--size-1);
+    border-color: var(--colorGrayLight);
+    cursor: pointer;
+    display: flex;
+    gap: var(--size-10);
+    padding: 0 var(--size-10);
+    align-items: center;
+}
+
+.select > *:first-child {
+    flex: 1;
+    font-weight: normal;
+    color: var(--colorGray);
+}
+
+.select:focus {
+    outline: none;
+}
+.currency{
+    font-size: var(--size-10);
+}

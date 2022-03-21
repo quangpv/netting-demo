@@ -1,0 +1,78 @@
+.exchange-rate-container {
+    background-color: var(--colorGraySilver);
+    padding-bottom: var(--size-50);
+}
+
+.exchange-rate-filter {
+    padding: var(--size-10) var(--size-20);
+    display: grid;
+    background-color: var(--colorWhite);
+    grid-gap: var(--size-10);
+}
+
+.exchange-rate-filter input {
+    background-color: var(--colorGraySilver);
+    border-color: var(--colorGraySilver);
+}
+
+.exchange-rate-filter .btn-clear {
+    background-color: var(--colorWhite);
+    border-width: var(--size-1);
+    border-style: solid;
+    border-color: var(--colorGray);
+}
+
+.exchange-rate-filter .btn-apply-filter {
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+    border-width: var(--size-1);
+    border-style: solid;
+    border-color: var(--colorPrimary);
+    align-self: end;
+}
+
+.exchange-rate-filter .btn-apply-filter > img {
+    margin-left: var(--size-10);
+}
+
+.exchange-rate-filter button {
+    align-self: end;
+}
+
+.exchange-rate-table {
+    margin: var(--size-16) var(--size-20);
+    background-color: var(--colorWhite);
+    border-radius: var(--size-2);
+    box-shadow: 0 0 var(--size-2) var(--colorGrayLight);
+}
+
+.exchange-rate-export {
+    display: flex;
+    align-items: center;
+    padding: var(--size-16) var(--size-20);
+}
+
+.exchange-rate-export > .ohn-btn {
+    margin-left: auto;
+    border-width: var(--size-1);
+    border-style: solid;
+    border-color: var(--colorPrimary);
+    color: var(--colorPrimary);
+    padding: var(--size-5) var(--size-10);
+    font-size: var(--fontSize-12);
+    font-weight: normal;
+    border-radius: var(--size-2);
+}
+
+.exchange-rate-export > .ohn-btn > img {
+    margin-left: var(--size-4);
+}
+
+.exchange-rate-export > .ohn-btn > a {
+    text-decoration: none;
+    color: var(--colorPrimary);
+}
+
+.exchange-rate-table > table {
+    margin: var(--size-10) 0;
+}

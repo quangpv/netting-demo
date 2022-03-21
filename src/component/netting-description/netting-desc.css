@@ -1,0 +1,85 @@
+.netting-desc {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--size-20);
+    padding: var(--size-10) var(--size-20);
+    background-color: var(--colorWhite);
+}
+
+.netting-desc > div:first-child {
+    grid-area: 1/1;
+    display: flex;
+    padding-left: var(--size-40);
+    flex-direction: column;
+}
+
+.netting-desc > div:nth-child(2) {
+    grid-area: 1/2;
+}
+
+.netting-desc > div:last-child {
+    grid-area: 1/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-10);
+}
+
+.netting-desc button {
+    margin-top: var(--size-20);
+    padding: var(--size-8) var(--size-20) !important;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+    gap: var(--size-5);
+}
+
+.netting-desc label {
+    font-size: var(--fontSize-15);
+}
+
+.netting-desc label > span {
+    font-weight: lighter;
+}
+
+.netting-desc h1 {
+    color: var(--colorPrimary);
+    margin-top: var(--size-10);
+}
+
+.netting-desc h6 {
+    font-weight: bold;
+    margin-top: var(--size-10);
+}
+
+.netting-desc h6 > span {
+    font-weight: normal;
+    color: var(--colorGray);
+    margin-right: var(--size-5);
+}
+
+.netting-desc .file-widget {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--size-10);
+    align-items: center;
+}
+
+.netting-desc .file-widget > *:nth-child(1) {
+    grid-area: 1/1/span 2/1;
+}
+
+.netting-desc .file-widget > span {
+}
+
+.netting-desc .file-widget > *:nth-child(2) {
+    grid-area: 1/2;
+    font-size: var(--fontSize-12);
+}
+
+.netting-desc .file-widget > *:nth-child(3) {
+    grid-area: 2/2;
+    font-size: var(--fontSize-10);
+}

@@ -1,0 +1,31 @@
+import BeforeAfterChart from "../before-after/BeforeAfterChart";
+import CircularProgressBar from "../circular-progress/CircularProgressBar";
+import {IEstimatedSaving} from "../../model/ui/Models";
+import "./estimate-saving.css"
+
+interface Props {
+    item?: IEstimatedSaving | null
+}
+
+export default function EstimateSavingSection(props: Props) {
+    let item = props.item
+    return <div className={"estimate-saving"}>
+        <label>Fees</label>
+        <label>Cash Outflow</label>
+        <label>Potential</label>
+
+        <BeforeAfterChart cashSaving={item?.fee}/>
+        <BeforeAfterChart cashSaving={item?.cashFlow}/>
+
+        <div className={"potential-chart"}>
+            <CircularProgressBar
+                percent={item?.potentialPercent || "0%"}/>
+            <p>
+                Estimated savings potential achieved.
+                The more transactions and counterparties settled via OneHypernet, the higher the level
+                of
+                savings.
+            </p>
+        </div>
+    </div>
+}
