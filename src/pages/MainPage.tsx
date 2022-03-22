@@ -34,7 +34,7 @@ export default function MainPage() {
     };
 
     useEffect(() => {
-        if (!checkLogin.isLogged() && window.location.pathname ! in Routing.protectedRoutes) {
+        if (!checkLogin.isLogged() && !Routing.protectedRoutes().includes(window.location.pathname)) {
             navigate({pathname: Routing.login})
         }
     }, [window.location.pathname])
