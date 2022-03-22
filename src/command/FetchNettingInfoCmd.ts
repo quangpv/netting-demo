@@ -90,7 +90,7 @@ export class FetchNettingInfoCmd extends Command {
         let estimateSaving: IEstimatedSaving = isOpening ? this.initState.estimatedSaving : {
             fee: this.createCashSaving(response.savingFee),
             cashFlow: this.createCashSaving(response.savingFee),
-            potentialPercent: `${response.potential}%`,
+            potentialPercent: `${(response.potential * 100).toFixed(2)}%`,
         }
         let summary = response.summary
 

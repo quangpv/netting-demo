@@ -5,5 +5,5 @@ zip -r netting-demo.zip config public scripts src package.json tsconfig.json yar
 scp netting-demo.zip $pi:~/
 
 ssh $pi "unzip netting-demo.zip -d netting-demo && rm netting-demo.zip"
-ssh $pi "cd netting-demo && yarn start"
+ssh $pi "cd netting-demo && nohup yarn start &"
 rm netting-demo.zip

@@ -11,12 +11,12 @@ export default function EstimateSavingSection(props: Props) {
     let item = props.item
     return <div className={"estimate-saving"}>
         <label>Fees</label>
-        <label>Cash Outflow</label>
-        <label>Potential</label>
-
         <BeforeAfterChart cashSaving={item?.fee}/>
+
+        <label>Cash Outflow</label>
         <BeforeAfterChart cashSaving={item?.cashFlow}/>
 
+        <label>Potential</label>
         <div className={"potential-chart"}>
             <CircularProgressBar
                 percent={item?.potentialPercent || "0%"}/>

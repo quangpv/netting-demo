@@ -5,9 +5,16 @@ import {Injectable} from "../core/Injection";
 import {ITransactionFile} from "../model/ui/Models";
 import {Command} from "./Command";
 
+export interface IProgress {
+    value: number;
+    success: boolean;
+}
+
 @Injectable([RemoteSource, LocalSource])
 export class SubmitTransactionCmd extends Command {
-    flow = flowOf(0)
+    private readonly initial: IProgress = {success: true, value: 0}
+    flow = flowOf<IProgress>(this.initial)
+
     private job: NodeJS.Timeout;
 
     constructor(private remoteSource: RemoteSource,
@@ -17,20 +24,40 @@ export class SubmitTransactionCmd extends Command {
 
     invoke(file: ITransactionFile, nettingId: string) {
         this.job = setTimeout(() => {
-            this.flow.emit(1)
+            this.notify(1)
             this.run(async () => {
-                await this.remoteSource.uploadTransactions(nettingId, file.file)
-                this.flow.emit(2)
+                let [, error] = await tryWith(() => this.remoteSource.uploadTransactions(nettingId, file.file))
+
+                this.notify(2, error == null)
+                if (error) {
+                    throw error
+                }
 
                 let result = await this.remoteSource.fetchNettingById(nettingId)
                 this.localSource.saveNettingDetail(nettingId, result)
-                this.flow.emit(3)
+                this.notify(3)
             })
         }, 1000)
     }
 
     reset() {
         if (this.job) clearTimeout(this.job)
-        this.flow.emit(0)
+        this.notify(0)
+    }
+
+    private notify(number: number, success: boolean = true) {
+        this.flow.emit({value: number, success: success})
+    }
+}
+
+export async function tryWith(block: () => any) {
+    try {
+        let result = block()
+        if (result instanceof Promise) {
+            return [await result, null]
+        }
+        return [result, null]
+    } catch (e) {
+        return [null, e]
     }
 }

@@ -50,9 +50,11 @@ export default function UploadTransactionDialog(props: Props) {
                 <div className={"divider-horizontal"}/>
                 <div className={"group-button"}>
                     <button onClick={onClose}>Cancel</button>
-                    <button className={"btn-continue"} disabled={state.file == null}
-                            onClick={onContinue}>Continue <AppIcon
-                        src={"ic_forwarding.svg"}/></button>
+                    <button className={"btn-continue"}
+                            disabled={state.file == null}
+                            onClick={onContinue}>Continue
+                        <AppIcon src={"ic_forwarding.svg"}/>
+                    </button>
                 </div>
             </div>
         </Modal>

@@ -43,8 +43,10 @@
     --size-30: 30px;
     --size-80: 80px;
     --size-100: 100px;
+    --size-120: 120px;
     --size-140: 140px;
     --size-150: 150px;
+    --size-170: 170px;
     --size-200: 200px;
     --size-300: 300px;
     --size-400: 400px;
@@ -66,7 +68,6 @@
 }
 
 body {
-    min-height: 100vh;
     display: flex;
     font-family: Inter, sans-serif;
     font-style: normal;
@@ -104,7 +105,6 @@ h6 {
 
 body, html, .App, #root, .auth-wrapper {
     width: 100%;
-    height: 100%;
 }
 
 input, button {
@@ -197,6 +197,7 @@ canvas {
     gap: var(--size-10);
     padding: 0 var(--size-10);
     align-items: center;
+    min-height: var(--size-40);
 }
 
 .select > *:first-child {

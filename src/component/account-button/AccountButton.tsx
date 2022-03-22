@@ -21,7 +21,7 @@ export function AccountButton(props: AccountButtonProps) {
         handleClose(e)
         props.onLogoutClick();
     };
-    return (<div>
+    return <>
         <div className={"btn-account"} onClick={handleClick}>
             <div className={"circle"}>A</div>
             <span>{props.email}</span>
@@ -38,5 +38,5 @@ export function AccountButton(props: AccountButtonProps) {
         >
             <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
-    </div>)
+    </>
 }

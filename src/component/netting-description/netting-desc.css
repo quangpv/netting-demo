@@ -83,3 +83,11 @@
     grid-area: 2/2;
     font-size: var(--fontSize-10);
 }
+
+@media only screen and (max-width: 600px) {
+
+    .netting-desc{
+        display: flex;
+        flex-direction: column;
+    }
+}

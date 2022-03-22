@@ -1,4 +1,7 @@
 .exchange-rate-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
     background-color: var(--colorGraySilver);
     padding-bottom: var(--size-50);
 }
@@ -75,4 +78,23 @@
 
 .exchange-rate-table > table {
     margin: var(--size-10) 0;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .exchange-rate-filter {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--colorWhite);
+        padding: var(--size-10) var(--size-20);
+        gap: var(--size-10);
+    }
+
+    .exchange-rate-filter .btn-clear {
+        align-self: stretch;
+    }
+
+    .exchange-rate-filter .btn-apply-filter {
+        align-self: stretch;
+    }
 }

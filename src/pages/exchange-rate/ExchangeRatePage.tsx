@@ -45,31 +45,36 @@ export default function ExchangeRatePage() {
     return <div className={"exchange-rate-container"}>
         <div className={"exchange-rate-filter"}>
             <label style={{gridArea: "1/1"}}>From</label>
-            <label style={{gridArea: "1/2"}}>To</label>
-            <label style={{gridArea: "1/3"}}>Location</label>
-            <label style={{gridArea: "1/4"}}>Destination</label>
-            <label style={{gridArea: "1/5/1/span 2"}}/>
+
             <input style={{gridArea: "2/1"}}
                    placeholder={"From"}
                    name={"from"}
                    value={filter.from}
                    onChange={onInputChange}/>
+
+            <label style={{gridArea: "1/2"}}>To</label>
             <input style={{gridArea: "2/2"}}
                    placeholder={"To"}
                    name={"to"}
                    value={filter.to}
                    onChange={onInputChange}/>
+
+            <label style={{gridArea: "1/3"}}>Location</label>
             <input style={{gridArea: "2/3"}}
                    placeholder={"Location"}
                    name={"location"}
                    value={filter.location}
                    onChange={onInputChange}/>
+
+
+            <label style={{gridArea: "1/4"}}>Destination</label>
             <input style={{gridArea: "2/4"}}
                    placeholder={"Destination"}
                    name={"destination"}
                    value={filter.destination}
                    onChange={onInputChange}/>
 
+            <label style={{gridArea: "1/5/1/span 2"}}/>
             <button style={{gridArea: "2/5"}} className={"btn-clear"} onClick={onClearClick}>Clear</button>
             <div style={{gridArea: "2/6"}} className={"btn-apply-filter ohn-btn"} onClick={onFilterClick}>
                 <span>Apply filter</span>

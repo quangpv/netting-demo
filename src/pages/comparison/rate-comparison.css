@@ -1,5 +1,7 @@
 .rate-comparison {
-
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .rate-comparison .compare-filter {
@@ -8,33 +10,34 @@
     padding: var(--size-16) 8vw;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: var(--size-16);
+    align-items: center;
 }
 
 .rate-comparison .compare-filter > *:nth-child(1) {
     grid-area: 1/1;
 }
 
-.rate-comparison .compare-filter > *:nth-child(5) {
+.rate-comparison .compare-filter > *:nth-child(2) {
     grid-area: 2/1;
 }
 
-.rate-comparison .compare-filter > *:nth-child(2) {
+.rate-comparison .compare-filter > *:nth-child(3) {
     grid-area: 1/2;
 }
 
-.rate-comparison .compare-filter > *:nth-child(6) {
+.rate-comparison .compare-filter > *:nth-child(4) {
     grid-area: 2/2;
 }
 
-.rate-comparison .compare-filter > *:nth-child(3) {
+.rate-comparison .compare-filter > *:nth-child(5) {
     grid-area: 1/3;
 }
 
-.rate-comparison .compare-filter > *:nth-child(7) {
+.rate-comparison .compare-filter > *:nth-child(6) {
     grid-area: 2/3;
 }
 
-.rate-comparison .compare-filter > *:nth-child(4) {
+.rate-comparison .compare-filter > *:nth-child(7) {
     grid-area: 1/4;
 }
 
@@ -46,15 +49,32 @@
     grid-area: 2/5;
 }
 
+@media only screen and (max-width: 600px) {
+
+    .rate-comparison .compare-filter {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--colorWhite);
+        padding: var(--size-16) 8vw;
+        gap: var(--size-16);
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+}
+
 .rate-comparison .compare-content {
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 60vh;
     margin: var(--size-24) 8vw;
     background-color: var(--colorWhite);
-    justify-content: center;
     border-radius: var(--size-4);
     box-shadow: 0 0 var(--size-4) var(--colorGrayLight);
+    padding: var(--size-10);
+}
+.rate-comparison .compare-content >span{
+    text-align: center;
 }
 
 .compare-action {

@@ -6,7 +6,6 @@ import {Routing} from "../../app/Routing";
 import {AccountButton} from "../../component/account-button/AccountButton";
 import {LogoutCmd} from "../../command/LogoutCmd";
 import React from "react";
-import {WalletWidget} from "../../component/wallet/WalletWidget";
 import {RetrieveEmailCmd} from "../../command/RetrieveEmailCmd";
 import {launch} from "../../core/HookExt";
 
@@ -29,16 +28,20 @@ export default function HomePage() {
     let getActiveClass = (path) => {
         return window.location.pathname.includes(path) ? "active-link" : ""
     }
+    let handleLogoClick = () => {
+        navigate({pathname: Routing.demo})
+    }
     launch(() => {
-        if(Routing.home === window.location.pathname){
+        if (Routing.home === window.location.pathname) {
             navigate({pathname: Routing.demo})
         }
     })
     return (<div className={"home-container"}>
         <div className={"home-header"}>
             <header>
-                <img src={logo} width={32} height={32} alt={""}/>
-                <h1>Onehypernet</h1>
+                <img onClick={handleLogoClick} src={logo} width={32} height={32} alt={""}/>
+                <h1 onClick={handleLogoClick}>Onehypernet</h1>
+                <div/>
                 <AccountButton email={email} onLogoutClick={handleLogout}/>
             </header>
             <nav>

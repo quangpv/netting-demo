@@ -5,6 +5,7 @@
     gap: var(--size-10);
     width: var(--size-150);
     justify-self: center;
+    align-self: stretch;
 }
 
 .before-after-chart > label {
@@ -39,8 +40,17 @@
     background-color: var(--colorBlack);
     color: var(--colorWhite);
     display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
     align-items: end;
     justify-content: center;
     font-size: var(--fontSize-12);
     padding-bottom: var(--size-10);
+}
+
+@media only screen and (max-width: 600px) {
+    .before-after-chart {
+        min-height: var(--size-170);
+        align-self: center;
+    }
 }

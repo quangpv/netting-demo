@@ -2,6 +2,7 @@ import {Modal} from "@mui/material";
 import "./insight.css"
 import AppIcon from "../AppIcon";
 import React, {useState} from "react";
+import copyToClipboard from 'copy-to-clipboard';
 
 interface Props {
     isShow: boolean
@@ -11,12 +12,11 @@ interface Props {
 
 export default function CashFlowInsightDialog(props: Props) {
     let [copied, setCopied] = useState(-1)
-
     let onClose = () => {
         props.onClose()
     }
     let onCopyToClipBoard = async (e: React.MouseEvent<HTMLButtonElement>, index: number, value: string) => {
-        await navigator.clipboard.writeText(value);
+        copyToClipboard(value)
         setCopied(index)
     }
     let CopyableLabel = (index: number) => {

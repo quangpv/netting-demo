@@ -15,35 +15,50 @@ interface Props {
 
 export default function SubmitTransactionDialog(props: Props) {
     let cmd = useService(SubmitTransactionCmd)
-    let progress = cmd.flow.asState()
+    let {value, success} = cmd.flow.asState()
+    let progress = value
+
     let onClose = () => {
         cmd.reset()
         props.onClose()
     }
+
     useEffect(() => {
         if (props.isShow) cmd.invoke(props.file, props.nettingId)
-    }, [cmd, props.file, props.isShow])
+    }, [cmd, props.file, props.isShow, props.nettingId])
+
     let ProgressIndicator = (index: number) => {
-        if (index <= progress) {
+        if (index < progress) {
             return <div className={"indicator-verified"}>{<AppIcon src={"ic_check.svg"}/>}</div>
         }
-        if (index === progress + 1) {
+        if (index === progress) {
+            let clazz = success ? "indicator-verified" : "indicator-failed"
+            let icon = success ? "ic_check.svg" : "ic_close.svg"
+            return <div className={clazz}>{<AppIcon src={icon}/>}</div>
+        }
+        if (index === progress + 1 && success) {
             return <div className={"indicator-active"}>{index}</div>
         }
         return <div>{index}</div>
     }
 
     let ProgressLine = (index: number) => {
-        if (index <= progress) {
+        if (index < progress || (index === progress && success)) {
             return <div className={`line line-active`}/>
         }
         return <div className={`line`}/>
     }
     let ProgressName = (index: number, progressName: string) => {
-        if (index <= progress) {
+        if (index < progress) {
             return <label><AppIcon src={"ic_check_green.svg"} width={14} height={14}/> {progressName}</label>
         }
-        if (index === progress + 1) {
+        if (index === progress) {
+            let clazz = success ? "" : "color-red"
+            let icon = success ? "ic_check_green.svg" : "ic_circle_close.svg"
+            return <label className={clazz}>
+                <AppIcon src={icon} width={14} height={14}/> {progressName}</label>
+        }
+        if (index === progress + 1 && success) {
             return <label style={{color: "var(--colorGreen)"}}><b>{index}</b> {progressName}</label>
         }
         return <label><b>{index}</b> {progressName}</label>

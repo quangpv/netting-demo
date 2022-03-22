@@ -11,6 +11,8 @@ export const Routing = {
     nettingCycles: "/home/overview/netting-cycles",
     detail: "/home/overview/detail/:id",
 
+    protectedRoutes: () => [Routing.login, Routing.register],
+
     detailOf(nettingId: string) {
         return this.detail.replace(":id", nettingId)
     }

@@ -48,6 +48,10 @@
     background-color: var(--colorGreen) !important;
 }
 
+.indicator-failed {
+    background-color: var(--colorRed) !important;
+}
+
 .line-active {
     background-color: var(--colorGreen) !important;
 }
@@ -68,4 +72,8 @@
     background-color: var(--colorGraySilver);
     height: var(--size-1);
     flex: 1;
+}
+
+.submit-tran .color-red {
+    color: var(--colorRed);
 }

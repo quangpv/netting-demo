@@ -16,6 +16,8 @@
 
 .upload-trans > .group-button {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: end;
     gap: var(--size-20);
 }

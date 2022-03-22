@@ -21,7 +21,8 @@ export class ReadFileCmd {
     }
 
     private async doInvoke(file: File) {
-        if (file == null || file.type !== "text/csv") {
+        if (file == null || (file.type !== "text/csv" && !file.name.includes(".csv"))) {
+            this.errorHandler.handle(new Error(`File is invalid format`))
             this.flow.emit(null)
             return
         }

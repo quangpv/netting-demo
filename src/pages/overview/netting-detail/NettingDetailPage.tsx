@@ -68,7 +68,7 @@ export default function NettingDetailPage() {
         payCmd.invoke(id)
     }
 
-    return (<div className={"netting-detail"}>
+    return <div className={"netting-detail"}>
         <div className={"netting-status-nav"}>
             <AppIcon src={"ic_arrow_back.svg"} onClick={handleBackClick}/>
             <NettingStatusWidget status={nettingInfo.status}/>
@@ -144,5 +144,5 @@ export default function NettingDetailPage() {
             onClose={onCloseDialog}
             onPayClick={onPayClick}
         />
-    </div>)
+    </div>
 }
