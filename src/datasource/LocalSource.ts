@@ -70,7 +70,6 @@ export class LocalSource {
     }
 
     getNettingDetailFlow(id: string): Flow<NettingDetailDTO> {
-        console.log(this.nettingDetailFlow)
         if (this.nettingDetailFlow.hasOwnProperty(id)) {
             return this.nettingDetailFlow[id]
         }

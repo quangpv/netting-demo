@@ -1,8 +1,9 @@
-import {ApiError, AppError} from "../exception/AppError";
+import {ApiError} from "../exception/AppError";
 import {formDataToJson, objectToQueryString} from "../utils/FormDataUtils";
 import {Singleton} from "../core/Injection";
 import {LocalSource} from "./LocalSource";
 import {NettingDetailDTO} from "../model/response/NettingDetailDTO";
+import {ComparisonDTO} from "../model/response/ComparisonDTO";
 
 @Singleton([LocalSource])
 export class RemoteSource {
@@ -92,21 +93,12 @@ export class RemoteSource {
         await this.post(`transactions/${id}`, form, null)
     }
 
-    private uuid() {
-        const chars = '0123456789abcdef'.split('');
-
-        let uuid = [], rnd = Math.random, r;
-        uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-        uuid[14] = '4'; // version 4
-
-        for (let i = 0; i < 36; i++) {
-            if (!uuid[i]) {
-                r = 0 | rnd() * 16;
-                uuid[i] = chars[(i === 19) ? (r & 0x3) | 0x8 : r & 0xf];
-            }
-        }
-
-        return uuid.join('');
+    async compare(home: string, invoice: string, amount: number) {
+        return await this.post(`rate-comparison`, JSON.stringify({
+            homeCurrency: home,
+            invoiceCurrency: invoice,
+            amount: amount
+        })).then(it => it.json()) as ComparisonDTO
     }
 }
 

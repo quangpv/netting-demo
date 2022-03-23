@@ -63,11 +63,12 @@ export class FetchNettingInfoCmd extends Command {
         if (saving == null) return {
             afterAmount: "0.00", afterPercent: "0%", beforeAmount: "0.00", savingAmount: "0%", savingPercent: "0%"
         }
+        let savingPercent = 100 - saving.savingPercent
         return {
             beforeAmount: this.textFormatter.formatAmount(saving.before),
             afterAmount: this.textFormatter.formatAmount(saving.after),
             savingAmount: this.textFormatter.formatAmount(saving.savingAmount),
-            savingPercent: `${100 - saving.savingPercent}%`,
+            savingPercent: `${savingPercent === 100 && saving.after > 0 ? 99 : savingPercent}%`,
             afterPercent: `${saving.savingPercent}%`
         };
     }
@@ -89,7 +90,7 @@ export class FetchNettingInfoCmd extends Command {
 
         let estimateSaving: IEstimatedSaving = isOpening ? this.initState.estimatedSaving : {
             fee: this.createCashSaving(response.savingFee),
-            cashFlow: this.createCashSaving(response.savingFee),
+            cashFlow: this.createCashSaving(response.savingCash),
             potentialPercent: `${(response.potential * 100).toFixed(2)}%`,
         }
         let summary = response.summary

@@ -9,3 +9,9 @@ export class ApiError extends AppError {
         super(errorResponse["message"]);
     }
 }
+
+export class InvalidTokenError extends AppError {
+    constructor() {
+        super("Invalid token");
+    }
+}

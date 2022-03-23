@@ -143,6 +143,7 @@ export default function NettingDetailPage() {
             isShow={state.dialogType === DIALOG_PAYMENT}
             onClose={onCloseDialog}
             onPayClick={onPayClick}
+            amount={nettingInfo.payable.amount}
         />
     </div>
 }

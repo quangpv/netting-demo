@@ -1,9 +1,11 @@
-
-
 .netting-report {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.netting-report table tbody > tr:nth-child(odd) {
+    background-color: transparent;
 }
 
 .netting-report > *:first-child {

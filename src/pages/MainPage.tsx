@@ -6,6 +6,7 @@ import {Routing} from "../app/Routing";
 import {launch} from "../core/HookExt";
 import {GlobalErrorHandler, RegistrableGlobalErrorHandler} from "../app/GlobalErrorHandler";
 import {Alert, Snackbar} from "@mui/material";
+import {InvalidTokenError} from "../exception/AppError";
 
 export default function MainPage() {
     let checkLogin = useService(CheckLoginCmd)
@@ -32,16 +33,19 @@ export default function MainPage() {
     const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
         setError({...error, open: false});
     };
-
-    useEffect(() => {
+    const checkToNavigate = () => {
         if (!checkLogin.isLogged() && !Routing.protectedRoutes().includes(window.location.pathname)) {
             navigate({pathname: Routing.login})
         }
+    }
+    useEffect(() => {
+        checkToNavigate()
     }, [window.location.pathname])
 
     launch(() => {
         if (globalErrorHandler instanceof RegistrableGlobalErrorHandler) {
             return globalErrorHandler.error.collect(error => {
+                if (error instanceof InvalidTokenError) checkToNavigate()
                 setError({open: true, message: error.message});
             })
         }

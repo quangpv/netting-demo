@@ -1,4 +1,7 @@
 import {Flow, SingleFlow} from "../core/Flow";
+import {container} from "tsyringe";
+import {LocalSource} from "../datasource/LocalSource";
+import {ApiError, InvalidTokenError} from "../exception/AppError";
 
 export class GlobalErrorHandler {
     handle(error: Error) {
@@ -21,7 +24,13 @@ export class RegistrableGlobalErrorHandler extends GlobalErrorHandler {
     }
 
     handle(error: Error) {
+        let err = error
+        if (error.message.toLowerCase() === "token invalid") {
+            container.resolve(LocalSource).removeToken()
+            err = new InvalidTokenError();
+        }
         console.log(error)
-        this.error.emit(error)
+
+        this.error.emit(err)
     }
 }

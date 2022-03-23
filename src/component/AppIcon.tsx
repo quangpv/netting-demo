@@ -7,8 +7,14 @@ interface AppIconProps {
 }
 
 export default function AppIcon(props: AppIconProps) {
+    let src: any
+    try {
+        src = require(`../icons/${props.src}`)
+    } catch (e) {
+        require(`../icons/ic_logo.svg`)
+    }
     return <img
-        src={require(`../icons/${props.src}`)}
+        src={src}
         alt={""}
         width={props.width}
         height={props.height}

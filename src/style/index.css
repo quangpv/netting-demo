@@ -1,6 +1,7 @@
 @import url('https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 :root {
     --colorPrimaryDark: #011B56;
@@ -209,6 +210,7 @@ canvas {
 .select:focus {
     outline: none;
 }
-.currency{
+
+.currency {
     font-size: var(--size-10);
 }

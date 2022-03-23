@@ -88,6 +88,11 @@
     display: flex;
     gap: var(--size-10);
     align-items: center;
+    width: 120px;
+}
+
+.compare-action > button:last-child:disabled {
+    background-color: var(--colorGrayLight);
 }
 
 .compare-action > button:first-child {

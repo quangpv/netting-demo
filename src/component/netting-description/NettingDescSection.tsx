@@ -89,7 +89,7 @@ export default function NettingDescSection(props: Props) {
 
     if (props.status <= NettingStatus.Open) return <div className={"netting-desc"}>
         <ReadyToSettlementState/>
-        <UploadExcelFileState/>
+        {props.status === NettingStatus.None ? <div/> : <UploadExcelFileState/>}
         <EmptyState/>
     </div>
 

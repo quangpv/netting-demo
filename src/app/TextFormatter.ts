@@ -15,7 +15,12 @@ export class TextFormatter {
     }
 
     formatAmount(amount: number) {
-        return amount.toFixed(2);
+        const format = (num) => num.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+
+        return format(amount);
     }
 
     formatYearMonth(month: string) {
@@ -24,6 +29,7 @@ export class TextFormatter {
     }
 
     formatDate(createAt: string) {
+        if (createAt == null) return "-"
         let date = new Date(createAt)
         let month = (this.months[date.getMonth()] as string).substring(0, 3)
         let day = date.getDate().toLocaleString([], {minimumIntegerDigits: 2})
@@ -31,6 +37,7 @@ export class TextFormatter {
     }
 
     formatDate1(createAt: string) {
+        if (createAt == null) return "-"
         let date = new Date(createAt)
         let month = (this.months[date.getMonth()] as string).substring(0, 3)
         let day = date.getDate().toLocaleString([], {minimumIntegerDigits: 2})
