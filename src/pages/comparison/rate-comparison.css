@@ -71,10 +71,11 @@
     background-color: var(--colorWhite);
     border-radius: var(--size-4);
     box-shadow: 0 0 var(--size-4) var(--colorGrayLight);
-    padding: var(--size-10);
 }
-.rate-comparison .compare-content >span{
+
+.rate-comparison .compare-content > span {
     text-align: center;
+    padding: var(--size-10);
 }
 
 .compare-action {
@@ -115,4 +116,20 @@
 .compare-fx > *:last-child {
     color: var(--colorGray);
     font-size: var(--fontSize-12);
+}
+
+.rate-comparison table tbody > tr:nth-child(odd) {
+    background-color: transparent;
+}
+
+.rate-comparison table tr {
+    border-bottom-style: solid;
+    border-left-width: var(--size-1);
+    border-bottom-color: var(--colorGraySilver);
+}
+.rate-comparison table th {
+    padding: var(--size-20);
+}
+.rate-comparison table td {
+    padding: var(--size-16);
 }

@@ -102,11 +102,11 @@ export default function RateComparisonPage() {
                     : <table style={{alignSelf: "self-start"}}>
                         <thead>
                         <tr>
-                            <td/>
-                            <td>Exchange rate</td>
-                            <td>Transfer fee</td>
-                            <td>Total payment</td>
-                            <td>Loss</td>
+                            <th/>
+                            <th>Exchange rate</th>
+                            <th>Transfer fee</th>
+                            <th>Total payment</th>
+                            <th>Loss</th>
                         </tr>
                         </thead>
                         <tbody>

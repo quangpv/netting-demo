@@ -49,7 +49,7 @@ export class CompareCurrencyRateCmd extends Command {
             exchangeRate: `1 ${data.homeCurrency} = ${item.exchangeRate} ${data.invoiceCurrency}`,
             loss: this.textFormatter.formatCash(currency, item.loss),
             orgImage: item.logo,
-            orgName: item.logo,
+            orgName: item.name,
             totalPayment: this.textFormatter.formatCash(currency, item.totalPayment),
             transferFee: this.textFormatter.formatCash(currency, item.transferFee)
         };
