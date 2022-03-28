@@ -214,3 +214,6 @@ canvas {
 .currency {
     font-size: var(--size-10);
 }
+.bold{
+    font-weight: bold;
+}

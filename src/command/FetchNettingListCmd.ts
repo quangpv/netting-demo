@@ -33,11 +33,11 @@ export class FetchNettingListCmd extends Command {
             amount: "-", currency: ""
         }
         let isOpen = status <= NettingStatus.Open
-        let isIncrease = isOpen ? null : item.payable.amount > item.receivable.amount
+        let isIncrease = isOpen ? null : item.savingCash.amount > 0
 
         let netCashFlow = isOpen ? {...amountDefault, isIncrease: null} : {
             currency: item.savingCash.currency,
-            amount: this.textFormatter.formatAmount(item.savingCash.amount),
+            amount: this.textFormatter.formatAmount(Math.abs(item.savingCash.amount)),
             isIncrease: isIncrease
         }
         let receivable = isOpen ? amountDefault : {
@@ -54,7 +54,7 @@ export class FetchNettingListCmd extends Command {
         }
         let cashFlow = isOpen ? amountDefault : {
             currency: item.savingCash.currency,
-            amount: this.textFormatter.formatAmount(item.savingCash.amount),
+            amount: this.textFormatter.formatAmount(Math.abs(item.savingCash.amount)),
         }
         return {
             date: this.textFormatter.formatDate(item.createAt),

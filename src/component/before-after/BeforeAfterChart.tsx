@@ -17,14 +17,14 @@ export default function BeforeAfterChart(props?: Props | null) {
     let showSavingStyle = cashSaving.savingPercent === "0%" ? "none" : "block"
     return <div className={"before-after-chart"}>
         <div className={"before-chart"}>
-            <span>${cashSaving.beforeAmount}</span>
+            <span>{cashSaving.beforeAmount}</span>
         </div>
         <div className={"after-chart"}>
             <div style={{height: cashSaving.savingPercent,  display: showSavingStyle}}>
-                <p>{cashSaving.savingPercent} savings</p>
-                <p>${cashSaving.savingAmount}</p>
+                <p className={"bold"}>{cashSaving.savingPercent} savings</p>
+                <p>{cashSaving.savingAmount}</p>
             </div>
-            <span style={{height: cashSaving.afterPercent}}>${cashSaving.afterAmount}</span>
+            <span style={{height: cashSaving.afterPercent}}>{cashSaving.afterAmount}</span>
         </div>
         <label>Before</label>
         <label>After</label>

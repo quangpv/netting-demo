@@ -27,6 +27,11 @@
     text-align: center;
 }
 
+.before-after-chart > .before-chart,
+.before-after-chart > .after-chart {
+    width: var(--size-100);
+}
+
 .before-after-chart > .after-chart > *:last-child {
     font-size: var(--fontSize-12);
     color: var(--colorWhite);

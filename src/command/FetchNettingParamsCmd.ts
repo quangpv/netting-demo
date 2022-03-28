@@ -28,6 +28,7 @@ export class FetchNettingParamsCmd extends Command {
     }
 
     private create(it: NettingParamDTO): INettingParam {
+        let {id, ...exportData} = it
         return {
             destination: it.destinationLocations,
             fee: it.fee.toFixed(2),
@@ -38,7 +39,8 @@ export class FetchNettingParamsCmd extends Command {
             margin: it.margin.toFixed(2),
             max: it.maxFee.toFixed(2),
             min: it.minFee.toFixed(2),
-            to: it.toCurrency
+            to: it.toCurrency,
+            exportData: exportData
         };
     }
 

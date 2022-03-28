@@ -68,10 +68,16 @@ export default function CashFlowInsightDialog(props: Props) {
                 </p>
             </div>
             <div className={"action"}>
+                <button className={"btn-close"} onClick={props.onClose}>Close</button>
+                <div/>
                 <div>
-                    <button onClick={props.onClose}>Close</button>
+                    <button className={"btn-payment"}
+                            onClick={props.onPayClick}>
+                        I have made payment
+                        <AppIcon src={"ic_check.svg"}/>
+                    </button>
+                    <span>To end the demo</span>
                 </div>
-                <button onClick={props.onPayClick}>I have made payment <AppIcon src={"ic_check.svg"}/></button>
             </div>
         </div>
     </Modal>

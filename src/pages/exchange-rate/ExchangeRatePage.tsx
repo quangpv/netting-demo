@@ -88,7 +88,7 @@ export default function ExchangeRatePage() {
                 <label>Exchange Rates</label>
                 <div className={"ohn-btn"}>
                     <CSVLink
-                        data={state}
+                        data={state.map(it => it.exportData)}
                         filename={"netting-params.csv"}
                     >Export CSV</CSVLink>
                     <img src={ic_export} width={16} height={16} alt={""}/>
@@ -100,12 +100,12 @@ export default function ExchangeRatePage() {
                 <tr>
                     <th>From</th>
                     <th>To</th>
-                    <th>Margin(%)</th>
-                    <th>Fee(%)</th>
-                    <th>Min</th>
-                    <th>Max</th>
-                    <th>Fixed</th>
-                    <th>FX</th>
+                    <th>Financing cost (%)</th>
+                    <th>FX spread (%)</th>
+                    <th>Min FX fee</th>
+                    <th>Max FX fee</th>
+                    <th>Fixed FX fee</th>
+                    <th>FX rate</th>
                     <th>Location</th>
                     <th>Destination</th>
                 </tr>

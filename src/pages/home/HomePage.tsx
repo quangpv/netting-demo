@@ -40,7 +40,7 @@ export default function HomePage() {
         <div className={"home-header"}>
             <header>
                 <img onClick={handleLogoClick} src={logo} width={32} height={32} alt={""}/>
-                <h1 onClick={handleLogoClick}>Onehypernet</h1>
+                <h1 onClick={handleLogoClick}>OneHypernet</h1>
                 <div/>
                 <AccountButton email={email} onLogoutClick={handleLogout}/>
             </header>

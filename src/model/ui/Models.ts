@@ -15,7 +15,7 @@ export interface IExcludedTransaction {
 
 export interface INettedTransaction {
     localCurrency: string;
-    billCurrency:string;
+    billCurrency: string;
     localAmount: string;
     feeSaved: string;
     billAmount: string;
@@ -98,6 +98,8 @@ export interface INettingParam {
     fixed: string
     location: string
     destination: string
+
+    exportData: any
 }
 
 export interface ITransactionFile {

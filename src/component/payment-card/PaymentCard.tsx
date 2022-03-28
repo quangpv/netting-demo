@@ -42,7 +42,7 @@ export default function PaymentCard(props: Props) {
             </div>
             <div>
                 <span className={"count"}>{info.partner}</span>
-                <span style={{marginLeft: "var(--size-5)"}}>partners</span>
+                <span style={{marginLeft: "var(--size-5)"}}>counterparties</span>
             </div>
         </div>
     </div>

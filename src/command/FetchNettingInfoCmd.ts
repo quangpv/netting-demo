@@ -91,7 +91,7 @@ export class FetchNettingInfoCmd extends Command {
         let estimateSaving: IEstimatedSaving = isOpening ? this.initState.estimatedSaving : {
             fee: this.createCashSaving(response.savingFee),
             cashFlow: this.createCashSaving(response.savingCash),
-            potentialPercent: `${(response.potential * 100).toFixed(2)}%`,
+            potentialPercent: `${(response.potential * 100).toFixed(0)}%`,
         }
         let summary = response.summary
 
@@ -109,13 +109,14 @@ export class FetchNettingInfoCmd extends Command {
             : this.createCashReport("Fees", response.currency, response.summary.fees)
         let cashReport = isOpening ? null
             : this.createCashReport("Cash Outflow", response.currency, response.summary.cashOutFlow)
+        let netPayable = isOpening ? "" : this.textFormatter.formatCash(response.currency, Math.abs(response.netCashFlow.amount))
         return {
             isInProgress: !isOpening,
             status: status,
             nettingId: response.id,
 
             description: {
-                payableAmount: isOpening ? "" : this.textFormatter.formatCash(response.currency, response.payable.amount),
+                payableAmount: netPayable,
                 nettingName: response.group,
                 date: this.textFormatter.formatDate1(response.createAt),
 
