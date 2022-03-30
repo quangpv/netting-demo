@@ -14,6 +14,7 @@ export interface ICompareItem {
     transferFee: string
     totalPayment: string
     loss: string
+    isOHN: boolean
 }
 
 export interface IComparison {
@@ -111,7 +112,12 @@ export default function RateComparisonPage() {
                         </thead>
                         <tbody>
                         {comparison.items.map((it, index) => <tr key={index}>
-                            <td><img src={it.orgImage} alt={it.orgName} height={40} width={100}/></td>
+                            <td>
+                                {it.isOHN ?
+                                    <AppIcon src={"ic_onehypernet.svg"} height={40} width={150}/> :
+                                    <img src={it.orgImage} alt={it.orgName} height={40} width={100}/>
+                                }
+                            </td>
                             <td>{it.exchangeRate}</td>
                             <td>{it.transferFee}</td>
                             <td>{it.totalPayment}</td>

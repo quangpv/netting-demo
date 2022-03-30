@@ -32,7 +32,7 @@ export default function ChartView(props: Props) {
     let lineWidth = 2
     let indicatorSize = 8
     let monthHeight = 20
-    let fontSize = "12px"
+    let fontSize = "16px Inter, sans-serif"
     let fontColor = "black"
     let lineColor = props.lineColor || "#00C853"
     let indicatorColor = props.indicatorColor || "#CCF4DD"

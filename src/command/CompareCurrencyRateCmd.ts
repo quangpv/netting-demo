@@ -44,14 +44,18 @@ export class CompareCurrencyRateCmd extends Command {
     }
 
     private createCompareItem(item: CompareItemDTO, data: ComparisonDTO): ICompareItem {
+        let isOHN = item.name === "OneHypernet"
         let currency = data.homeCurrency
+        let transferFee = isOHN ? "-" : this.textFormatter.formatCash(currency, item.transferFee)
+        let loss = isOHN ? "-" : this.textFormatter.formatCash(currency, item.loss)
         return {
             exchangeRate: `1 ${data.homeCurrency} = ${item.exchangeRate} ${data.invoiceCurrency}`,
-            loss: this.textFormatter.formatCash(currency, item.loss),
             orgImage: item.logo,
             orgName: item.name,
             totalPayment: this.textFormatter.formatCash(currency, item.totalPayment),
-            transferFee: this.textFormatter.formatCash(currency, item.transferFee)
+            transferFee: transferFee,
+            loss: loss,
+            isOHN: isOHN
         };
     }
 }
