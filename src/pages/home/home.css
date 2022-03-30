@@ -37,7 +37,7 @@ header > h1 {
     font-size: var(--fontSize-22);
 }
 
-header> *:nth-child(3){
+header > *:nth-child(3) {
     flex: 1;
 }
 
@@ -61,18 +61,24 @@ nav {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: var(--size-10);
-    padding-bottom: var(--size-10);
     background-color: var(--colorWhite);
-    min-height: var(--size-45);
     row-gap: var(--size-10);
 }
 
 nav > .my-nav-link {
     color: var(--colorGray);
-    padding-left: var(--size-20);
-    padding-right: var(--size-20);
     text-decoration: none;
+    padding: var(--size-10) var(--size-20);
+    min-height: var(--size-45);
+    display: flex;
+    align-items: center;
+
+    border-top-width: var(--size-2);
+    border-bottom-width: var(--size-2);
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
 }
 
 nav > .my-nav-link:hover {
@@ -87,4 +93,8 @@ nav > .my-nav-link:hover {
 
 nav .active-link {
     color: var(--colorBlack) !important;
+    font-weight: bold;
+    border-bottom-color: var(--colorPrimary);
+    border-bottom-width: var(--size-2);
+    border-bottom-style: solid;
 }
