@@ -34,7 +34,7 @@ export interface NettingDetailDTO {
         "numOfCounterParties": number,
         "numOfTransactions": number
     },
-    "potential": number,
+    "potentialPercent": number,
     "receivable": {
         "amount": number,
         "numOfCounterParties": number,
