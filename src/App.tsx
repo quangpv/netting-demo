@@ -23,6 +23,7 @@ export function App() {
                 <Route path={Routing.register} element={<RegisterPage/>}/>
                 <Route path={Routing.login} element={<LoginPage/>}/>
                 <Route path={Routing.home} element={<HomePage/>}>
+                    <Route index element={<DemoPage/>}/>
                     <Route path={Routing.demo} element={<DemoPage/>}/>
                     <Route path={Routing.instruction} element={<InstructionPage/>}/>
                     <Route path={Routing.createNetting} element={<CreateNettingPage/>}/>

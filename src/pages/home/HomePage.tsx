@@ -32,7 +32,8 @@ export default function HomePage() {
         navigate({pathname: Routing.demo})
     }
     launch(() => {
-        if (Routing.home === window.location.pathname) {
+        let pathName = window.location.pathname
+        if (Routing.home === pathName || pathName.length === 0 || pathName === "/") {
             navigate({pathname: Routing.demo})
         }
     })
