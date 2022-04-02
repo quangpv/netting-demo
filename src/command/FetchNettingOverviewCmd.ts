@@ -47,10 +47,14 @@ export default class FetchNettingOverviewCmd extends Command {
     }
 
     private create(result: NettingOverviewDTO): INettingOverview {
-        let isOpen = result.payable === 0.0 && result.receivable === 0.0
         let cashSaved = result.cashFlowSaved
         let feeSaved = result.feeSaved
         let currency = result.currency
+
+        let isOpen = result.payable === 0.0
+            && result.receivable === 0.0
+            && feeSaved.savedYTD === 0.0
+            && cashSaved.savedYTD === 0.0
 
         if (isOpen) {
             return {

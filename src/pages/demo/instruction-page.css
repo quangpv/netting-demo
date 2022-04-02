@@ -1,0 +1,31 @@
+.instruction-page {
+    display: flex;
+    flex-direction: column;
+    padding:var(--size-20) var(--size-50);
+}
+
+.instruction-page ul {
+    padding: var(--size-20);
+    margin: 0;
+    list-style: decimal;
+}
+
+.instruction-page .style-circle:before {
+    content: '• ';
+}
+
+.instruction-page .style-circle {
+    margin-top: var(--size-10);
+
+}
+
+.instruction-page li:not(:first-child) {
+    margin-top: var(--size-10);
+}
+
+.instruction-page button {
+    margin-top: var(--size-20);
+    width: var(--size-150);
+    color: var(--colorWhite);
+    background-color: var(--colorPrimary);
+}

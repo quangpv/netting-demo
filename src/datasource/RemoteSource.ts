@@ -100,6 +100,12 @@ export class RemoteSource {
             amount: amount
         })).then(it => it.json()) as ComparisonDTO
     }
+
+    async createNetting(groupName: string): Promise<NettingCycleDTO> {
+        return await this.post(`netting-cycles`, JSON.stringify({
+            group: groupName
+        })).then(it => it.json())
+    }
 }
 
 export interface LoginDTO {

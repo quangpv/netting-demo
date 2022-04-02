@@ -1,0 +1,52 @@
+.create-netting-page {
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-netting-page .container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: var(--colorWhite);
+    box-shadow: 0 0 var(--colorGray);
+    border-radius: var(--size-4);
+    padding: var(--size-20);
+}
+
+.create-netting-page .container > * {
+    margin-top: var(--size-20);
+}
+
+.create-netting-page label {
+    color: var(--colorGray);
+}
+
+.create-netting-page .container input {
+    margin-top: var(--size-10);
+}
+
+.create-netting-page .container button:last-child {
+    margin-top: var(--size-10);
+}
+
+.create-netting-page .container h1 {
+    align-self: center;
+}
+
+.create-netting-page .btn-no-border {
+    background-color: transparent;
+    border: none;
+    color: var(--colorPrimary);
+}
+
+.create-netting-page .btn-create {
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.create-netting-page .btn-create:disabled {
+    background-color: var(--colorGraySilver);
+    color: var(--colorGray);
+}

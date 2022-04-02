@@ -1,11 +1,8 @@
+import "./instruction-page.css"
+import {Navigate} from "react-router-dom";
+import {Routing} from "../../app/Routing";
+
+
 export default function DemoPage() {
-    return (
-        <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-        }}>
-            <h1 style={{marginTop: "var(--size-50)"}}>This is demo Page</h1>
-        </div>
-    )
+    return <Navigate to={Routing.instruction}/>
 }
