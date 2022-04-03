@@ -15,15 +15,17 @@ import {ITransactionFile} from "../../../model/ui/Models";
 import NettingReportSection from "../../../component/netting-report/NettingReportSection";
 import NettedTable from "../../../component/netted-table/NettedTable";
 import ExcludedTransactionTable from "../../../component/excluded-tran-table/ExcludedTransactionTable";
-import CashFlowPaymentDialog from "../../../component/cash-flow-insight-dialog/CashFlowInsightDialog";
+import CashFlowPaymentDialog from "../../../component/cash-flow-payment-dialog/CashFlowPaymentDialog";
 import EstimateSavingSection from "../../../component/estimate-saving/EstimateSavingSection";
 import {PayCmd} from "../../../command/PayCmd";
+import CashInsightDialog from "../../../component/cash-insight-dialog/CashInsightDialog";
 
 
 const DIALOG_NONE = -1
 const DIALOG_UPLOAD = 0
 const DIALOG_SUBMIT = 1
 const DIALOG_PAYMENT = 2
+const DIALOG_INSIGHT = 3
 
 interface State {
     dialogType: number
@@ -57,7 +59,7 @@ export default function NettingDetailPage() {
         setState({dialogType: DIALOG_SUBMIT, file: file})
     }
     let onInsightClick = () => {
-
+        setState({dialogType: DIALOG_INSIGHT})
     }
     let onPaymentClick = (e) => {
         e.preventDefault()
@@ -145,5 +147,9 @@ export default function NettingDetailPage() {
             onPayClick={onPayClick}
             amount={nettingInfo.payable.amount}
         />
+        <CashInsightDialog
+            items={nettingInfo.insights}
+            isShow={state.dialogType === DIALOG_INSIGHT}
+            onClose={onCloseDialog}/>
     </div>
 }

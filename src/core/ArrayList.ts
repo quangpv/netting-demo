@@ -17,7 +17,7 @@ export class ArrayList<T> {
     }
 
     find(accept: (T) => boolean): T | null {
-        if (this.items.length == 0) return null
+        if (this.items.length === 0) return null
         for (let item of this.items) {
             if (accept(item)) return item
         }
@@ -26,5 +26,9 @@ export class ArrayList<T> {
 
     getSize() {
         return this.items.length;
+    }
+
+    toArray() {
+        return this.items;
     }
 }

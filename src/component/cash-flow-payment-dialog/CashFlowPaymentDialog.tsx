@@ -13,7 +13,7 @@ interface Props {
     amount: string
 }
 
-export default function CashFlowInsightDialog(props: Props) {
+export default function CashFlowPaymentDialog(props: Props) {
     let [copied, setCopied] = useState(-1)
     let paymentInfoCmd = useService(FetchPaymentInfoCmd)
     let paymentInfo = paymentInfoCmd.flow.asState()

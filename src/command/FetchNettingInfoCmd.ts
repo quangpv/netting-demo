@@ -9,10 +9,14 @@ import {INettingFile, INettingInfo} from "../model/ui/INettingInfo";
 import {TextFormatter} from "../app/TextFormatter";
 import {LocalSource} from "../datasource/LocalSource";
 import {IPaymentCard} from "../component/payment-card/PaymentCard";
+import {ArrayList} from "../core/ArrayList";
+import {TransactionType, transactionTypeOf} from "../model/enumerate/TransactionType";
+import {IInsight} from "../component/cash-insight-dialog/CashInsightChart";
 
 @Injectable([RemoteSource, TextFormatter, LocalSource])
 export class FetchNettingInfoCmd extends Command {
     private initState: INettingInfo = {
+        insights: [],
         description: {
             payableAmount: "EUR 0.0",
             nettingName: "Test Netting",
@@ -110,6 +114,8 @@ export class FetchNettingInfoCmd extends Command {
         let cashReport = isOpening ? null
             : this.createCashReport("Cash Outflow", response.currency, response.summary.cashOutFlow)
         let netPayable = isOpening ? "" : this.textFormatter.formatCash(response.currency, Math.abs(response.netCashFlow.amount))
+        let insights = this.createInsights(response.nettedTransactions)
+
         return {
             isInProgress: !isOpening,
             status: status,
@@ -133,6 +139,8 @@ export class FetchNettingInfoCmd extends Command {
             netCashFlow: cashFlow,
             payable: payable,
             receivable: receivable,
+
+            insights: insights
         }
     }
 
@@ -174,5 +182,27 @@ export class FetchNettingInfoCmd extends Command {
             before: this.textFormatter.formatAmount(report.before),
             after: this.textFormatter.formatAmount(report.after)
         }
+    }
+
+    private createInsights(trans: NettedTransactionDTO[]) {
+        let group = new Map<string, ArrayList<string>>()
+        trans.forEach(it => {
+            const key = it.dueDate
+            if (!group.has(key)) {
+                group.set(key, new ArrayList())
+            }
+            const amount = this.textFormatter.formatCash(it.billAmount.currency, it.billAmount.amount)
+            const sign = (transactionTypeOf(it.type) === TransactionType.Receivable) ? "+" : "-"
+
+            group.get(key).push(`${sign} ${amount}`)
+        })
+        const result: IInsight[] = []
+        group.forEach((value, key) => {
+            result.push({
+                cashFlows: value.toArray(),
+                month: this.textFormatter.formatDateMonth(key)
+            })
+        })
+        return result
     }
 }

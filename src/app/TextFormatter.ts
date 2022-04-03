@@ -66,4 +66,9 @@ export class TextFormatter {
         }
         return `${size} B`
     }
+
+    formatDateMonth(date: string) {
+        let dateObj = new Date(date)
+        return `${dateObj.getDate()} ${this.months[dateObj.getMonth()].substring(0, 3)}`;
+    }
 }

@@ -1,6 +1,7 @@
 import {NettingStatus} from "../enumerate/NettingStatus";
 import {IPaymentCard} from "../../component/payment-card/PaymentCard";
 import {IEstimatedSaving, IExcludedTransaction, INettedTransaction, INettingReport} from "./Models";
+import {IInsight} from "../../component/cash-insight-dialog/CashInsightChart";
 
 export interface INettingFile {
     name: string
@@ -8,6 +9,7 @@ export interface INettingFile {
 }
 
 export interface INettingInfo {
+    insights: IInsight[];
     description: INettingDesc;
     isInProgress: boolean;
     status: NettingStatus

@@ -1,0 +1,84 @@
+.cash-insight-dialog {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: fit-content;
+    padding: var(--size-20);
+    gap: var(--size-10);
+}
+
+.cash-insight-dialog .insight-circle {
+    width: var(--size-10);
+    height: var(--size-10);
+    background-color: var(--colorPrimary);
+    border-radius: var(--size-10);
+}
+
+.cash-insight-dialog .insight-circle.inactive {
+    background-color: var(--colorGray);
+}
+
+.cash-insight-dialog .insight-before {
+    display: flex;
+    flex: 1;
+    border-radius: var(--size-2);
+    border-color: var(--colorGrayLight);
+    border-style: solid;
+    border-width: var(--size-1);
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.cash-insight-dialog .insight-before > label {
+    padding: var(--size-10);
+    text-align: center;
+    color: var(--colorWhite);
+    background-color: var(--colorGray);
+}
+
+.cash-insight-dialog .insight-after {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colorWhite);
+    border-radius: var(--size-2);
+    border-style: solid;
+    border-width: var(--size-1);
+    border-color: var(--colorPrimary);
+    min-width: var(--size-200);
+    align-items: center;
+    align-self: start;
+}
+
+.cash-insight-dialog .insight-after > label {
+    text-align: center;
+    align-self: stretch;
+    padding: var(--size-10);
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+}
+
+.cash-insight-dialog .insight-after > *:not(:first-child) {
+    padding: var(--size-10);
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-20);
+    width: 100%;
+}
+
+.cash-insight-chart {
+    display: grid;
+    grid-gap: var(--size-10);
+    padding: var(--size-20) var(--size-10);
+    grid-auto-columns: auto;
+    overflow: scroll;
+    justify-content: safe center;
+}
+
+.cash-insight-chart .insight-divider {
+    background-color: var(--colorGray);
+    height: var(--size-2);
+    align-self: center;
+}
