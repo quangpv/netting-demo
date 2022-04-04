@@ -3,7 +3,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
     gap: var(--size-10);
-    width: var(--size-150);
     justify-self: center;
     align-self: stretch;
 }

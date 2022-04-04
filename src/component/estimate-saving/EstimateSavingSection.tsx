@@ -1,7 +1,7 @@
 import BeforeAfterChart from "../before-after/BeforeAfterChart";
-import CircularProgressBar from "../circular-progress/CircularProgressBar";
 import {IEstimatedSaving} from "../../model/ui/Models";
 import "./estimate-saving.css"
+import CircularProgressBar from "../circular-progress/CircularProgressBar";
 
 interface Props {
     item?: IEstimatedSaving | null

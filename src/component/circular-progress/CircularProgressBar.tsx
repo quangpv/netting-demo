@@ -1,5 +1,4 @@
-import "./circular-progress-bar.css"
-import Canvas from "../Canvas";
+import {Arc, Layer, Stage, Text} from "react-konva";
 
 interface Props {
     percent: string
@@ -7,41 +6,49 @@ interface Props {
 }
 
 export default function CircularProgressBar(props: Props) {
-    let percent = parseFloat(props.percent.replace("%", "")) / 100
+    let rate = parseFloat(props.percent.replace("%", "")) / 100
     const strokeWidth = props.strokeWidth || 16;
+    const color = "#00C853"
+    const strokeColor = "#f5f5f5"
 
-    function drawHint(ctx: CanvasRenderingContext2D, strokeWidth: number, radius: number, start: number) {
-        ctx.beginPath()
-        ctx.arc(ctx.canvas.width / 2, ctx.canvas.height / 2,
-            radius,
-            0, 2 * Math.PI)
-        ctx.strokeStyle = "#f5f5f5"
-        ctx.lineWidth = strokeWidth;
-        ctx.stroke()
-        ctx.closePath()
-    }
+    const padding = 20
+    const circleSize = 150
+    const stageSize = circleSize + padding
+    const innerRadius = circleSize / 2 - strokeWidth
+    const outerRadius = circleSize / 2
 
-    function drawProgress(ctx: CanvasRenderingContext2D, strokeWidth: number, radius: number, start: number) {
-        ctx.beginPath()
-        ctx.arc(ctx.canvas.width / 2, ctx.canvas.height / 2,
-            radius,
-            start, start+percent * 2 * Math.PI)
-        ctx.strokeStyle = "#00C853"
-        ctx.lineWidth = strokeWidth;
-        ctx.stroke()
-        ctx.closePath()
-    }
+    return <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Stage width={stageSize} height={stageSize}>
+            <Layer>
+                <Arc angle={360}
+                     x={stageSize / 2}
+                     y={stageSize / 2}
+                     innerRadius={innerRadius}
+                     outerRadius={outerRadius}
+                     fill={strokeColor}/>
+                <Arc
+                    angle={rate * 360}
+                    x={stageSize / 2}
+                    rotationDeg={-90}
+                    y={stageSize / 2}
+                    innerRadius={innerRadius}
+                    outerRadius={outerRadius}
+                    fill={color}/>
 
-    const draw = (ctx: CanvasRenderingContext2D, frameCount) => {
-        let size = Math.min(ctx.canvas.width, ctx.canvas.height)
-        const radius = size / 2 - strokeWidth / 2
-        const start = -Math.PI / 2
-        drawHint(ctx, strokeWidth, radius, start)
-        drawProgress(ctx, strokeWidth, radius, start)
-        return false
-    }
-    return <div style={{display: "grid", color: "#00C853"}}>
-        <div style={{gridArea: "1/1"}}><Canvas draw={draw}/></div>
-        <h1 style={{gridArea: "1/1", justifySelf: "center", alignSelf: "center"}}>{props.percent}</h1>
+                <Text
+                    x={0}
+                    y={0}
+                    width={stageSize}
+                    height={stageSize}
+                    align={"center"}
+                    verticalAlign={"middle"}
+                    text={props.percent}
+                    fill={color}
+                    fontFamily={"Inter, sans-serif"}
+                    fontStyle={"bold"}
+                    fontSize={24}
+                />
+            </Layer>
+        </Stage>
     </div>
 }

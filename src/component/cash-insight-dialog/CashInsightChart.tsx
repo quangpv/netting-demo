@@ -53,7 +53,12 @@ export default function CashInsightChart(props: Props) {
                     {
                         it.cashFlows.map((cash, cashIndex) => {
                             const rowNumber = cashIndex + 3
-                            return <div style={{gridArea: `${rowNumber}/${colNumber}/${rowNumber}/span 2`}}>
+                            return <div key={cashIndex + index * 10}
+                                        style={{
+                                            gridArea: `${rowNumber}/${colNumber}/${rowNumber}/span 2`,
+                                            width: "fit-content",
+                                            whiteSpace:"nowrap"
+                                        }}>
                                 {cash}
                             </div>
                         })

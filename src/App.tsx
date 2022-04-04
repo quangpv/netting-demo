@@ -11,7 +11,6 @@ import OverviewPage from "./pages/overview/OverviewPage";
 import RateComparisonPage from "./pages/comparison/RateComparisonPage";
 import NettingCyclesPage from "./pages/overview/netting-cycles/NettingCyclesPage";
 import NettingDetailPage from "./pages/overview/netting-detail/NettingDetailPage";
-import RegisterPage from "./pages/auth/RegisterPage";
 import InstructionPage from "./pages/demo/InstructionPage";
 import CreateNettingPage from "./pages/demo/CreateNettingPage";
 
@@ -20,7 +19,6 @@ export function App() {
         <Routes>
             <Route path="/" element={<MainPage/>}>
                 <Route index element={<HomePage/>}/>
-                <Route path={Routing.register} element={<RegisterPage/>}/>
                 <Route path={Routing.login} element={<LoginPage/>}/>
                 <Route path={Routing.home} element={<HomePage/>}>
                     <Route index element={<DemoPage/>}/>

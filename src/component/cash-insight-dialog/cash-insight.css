@@ -27,6 +27,8 @@
     border-width: var(--size-1);
     flex-direction: column;
     overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .cash-insight-dialog .insight-before > label {
@@ -57,7 +59,7 @@
     color: var(--colorWhite);
 }
 
-.cash-insight-dialog .insight-after > *:not(:first-child) {
+.cash-insight-dialog .insight-after > *:not(:first-child,div.insight-circle) {
     padding: var(--size-10);
 }
 
@@ -74,6 +76,8 @@
     padding: var(--size-20) var(--size-10);
     grid-auto-columns: auto;
     overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
     justify-content: safe center;
 }
 

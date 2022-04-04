@@ -1,5 +1,4 @@
 export const Routing = {
-    register: "/register",
     login: "/login",
 
     home: "/home",
@@ -13,7 +12,7 @@ export const Routing = {
     instruction: "/home/demo/instruction",
     createNetting: "/home/demo/netting",
 
-    protectedRoutes: () => [Routing.login, Routing.register],
+    protectedRoutes: () => [Routing.login],
 
     detailOf(nettingId: string) {
         return this.detail.replace(":id", nettingId)

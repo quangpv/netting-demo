@@ -9,7 +9,8 @@ export interface INettingFile {
 }
 
 export interface INettingInfo {
-    insights: IInsight[];
+    insightBefore: IInsight[];
+    insightAfter: IInsight[];
     description: INettingDesc;
     isInProgress: boolean;
     status: NettingStatus

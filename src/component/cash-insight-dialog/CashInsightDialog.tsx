@@ -5,11 +5,15 @@ import CashInsightChart, {IInsight} from "./CashInsightChart";
 interface Props {
     isShow: boolean
     onClose: () => void
-    items: IInsight[]
+    before: IInsight[]
+    after: IInsight[]
 }
 
 export default function CashInsightDialog(props: Props) {
-
+    let after: IInsight = props.after.length > 0 ? props.after[0] : {
+        month: "Not available",
+        cashFlows: ["Not available"]
+    }
     return <Modal
         className={"modal-box"}
         open={props.isShow}
@@ -20,13 +24,13 @@ export default function CashInsightDialog(props: Props) {
             <div className={"chart-container"}>
                 <div className={"insight-before"}>
                     <label>Before</label>
-                    <CashInsightChart items={props.items}/>
+                    <CashInsightChart items={props.before}/>
                 </div>
                 <div className={"insight-after"}>
                     <label>After</label>
-                    <b>5 Mar</b>
+                    <b>{after.month}</b>
                     <div className={"insight-circle"}/>
-                    <b>- EUR 7,000.0</b>
+                    <b>{after.cashFlows[0]}</b>
                 </div>
             </div>
         </div>

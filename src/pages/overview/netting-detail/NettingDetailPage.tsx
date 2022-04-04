@@ -148,7 +148,8 @@ export default function NettingDetailPage() {
             amount={nettingInfo.payable.amount}
         />
         <CashInsightDialog
-            items={nettingInfo.insights}
+            before={nettingInfo.insightBefore}
+            after={nettingInfo.insightAfter}
             isShow={state.dialogType === DIALOG_INSIGHT}
             onClose={onCloseDialog}/>
     </div>

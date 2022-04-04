@@ -34,10 +34,6 @@ export default function LoginPage() {
         setState(newState)
     }
 
-    function handleRegistry() {
-        navigate({pathname: Routing.register})
-    }
-
     return (
         <div className={"login-container"}>
             <form onSubmit={handleSubmit}>
@@ -51,10 +47,6 @@ export default function LoginPage() {
                            name={"email"}/>
                 </div>
                 <button>Login</button>
-                <button type={"button"}
-                        onClick={handleRegistry}
-                        className={"btn-registry"}>You don't have account ?
-                </button>
             </form>
         </div>
     );

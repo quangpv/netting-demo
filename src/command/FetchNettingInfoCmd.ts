@@ -16,7 +16,8 @@ import {IInsight} from "../component/cash-insight-dialog/CashInsightChart";
 @Injectable([RemoteSource, TextFormatter, LocalSource])
 export class FetchNettingInfoCmd extends Command {
     private initState: INettingInfo = {
-        insights: [],
+        insightBefore: [],
+        insightAfter: [],
         description: {
             payableAmount: "EUR 0.0",
             nettingName: "Test Netting",
@@ -67,13 +68,14 @@ export class FetchNettingInfoCmd extends Command {
         if (saving == null) return {
             afterAmount: "0.00", afterPercent: "0%", beforeAmount: "0.00", savingAmount: "0%", savingPercent: "0%"
         }
-        let savingPercent = 100 - saving.savingPercent
+        let savingPercent = saving.savingPercent
+        let afterPercent = saving.before === 0 ? 0 : (saving.after / saving.before) * 100
         return {
             beforeAmount: this.textFormatter.formatAmount(saving.before),
             afterAmount: this.textFormatter.formatAmount(saving.after),
             savingAmount: this.textFormatter.formatAmount(saving.savingAmount),
-            savingPercent: `${savingPercent === 100 && saving.after > 0 ? 99 : savingPercent}%`,
-            afterPercent: `${saving.savingPercent}%`
+            savingPercent: `${savingPercent}%`,
+            afterPercent: `${afterPercent}%`
         };
     }
 
@@ -114,8 +116,8 @@ export class FetchNettingInfoCmd extends Command {
         let cashReport = isOpening ? null
             : this.createCashReport("Cash Outflow", response.currency, response.summary.cashOutFlow)
         let netPayable = isOpening ? "" : this.textFormatter.formatCash(response.currency, Math.abs(response.netCashFlow.amount))
-        let insights = this.createInsights(response.nettedTransactions)
-
+        let insightBefore = this.createInsightBefore(response.nettedTransactions)
+        let insightAfter = this.createInsightAfter(response)
         return {
             isInProgress: !isOpening,
             status: status,
@@ -140,7 +142,8 @@ export class FetchNettingInfoCmd extends Command {
             payable: payable,
             receivable: receivable,
 
-            insights: insights
+            insightBefore: insightBefore,
+            insightAfter: insightAfter
         }
     }
 
@@ -167,7 +170,7 @@ export class FetchNettingInfoCmd extends Command {
             localAmount: this.textFormatter.formatAmount(item.localAmount.amount),
             counterParty: item.counterParty,
             date: this.textFormatter.formatDate(item.date),
-            due: this.textFormatter.formatDate(item.date),
+            due: this.textFormatter.formatDate(item.dueDate),
             feeSaved: this.textFormatter.formatAmount(item.feeSaved.amount),
             tranId: item.transactionId,
             tranType: item.type
@@ -184,7 +187,7 @@ export class FetchNettingInfoCmd extends Command {
         }
     }
 
-    private createInsights(trans: NettedTransactionDTO[]) {
+    private createInsightBefore(trans: NettedTransactionDTO[]) {
         let group = new Map<string, ArrayList<string>>()
         trans.forEach(it => {
             const key = it.dueDate
@@ -204,5 +207,16 @@ export class FetchNettingInfoCmd extends Command {
             })
         })
         return result
+    }
+
+    private createInsightAfter(response: NettingDetailDTO): IInsight[] {
+        if(response.netCashFlow == null) return []
+        let amount = response.netCashFlow.amount
+        let sign = amount > 0 ? "+" : "-"
+        let cash = `${sign} ${this.textFormatter.formatCash(response.currency, Math.abs(amount))}`
+        return [{
+            month: this.textFormatter.formatDateMonth(response.createAt),
+            cashFlows: [cash]
+        }]
     }
 }
